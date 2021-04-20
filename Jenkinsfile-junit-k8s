@@ -1,15 +1,10 @@
 pipeline {
   agent any 
   
-  options {
-    disableConcurrentBuilds()
-  }
-
-  
   stages{
     stage('Clone'){
       steps{
-        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://gitee.com/devops-workspace/learn-pipeline-java']]])
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://gitee.com/devops-workspace/learn-pipeline-java']]])
         echo "clone demo"
       }
     }
